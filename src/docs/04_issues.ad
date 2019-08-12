@@ -1,0 +1,28 @@
+== Issue migration
+
+Once you have created a project, you can now import issues related with this project:
+
+[source, groovy]
+.Issue.groovy
+----
+include::{sourceDir}/net/kaleidos/domain/Issue.groovy[tags=issue,indent=0]
+----
+
+
+[source, groovy]
+.Basic issue creation
+----
+include::{testDir}/net/kaleidos/tuesmon/testdata/IssueData.groovy[tags=createIssue,indent=0]
+----
+
+Now you can import the issue in Tuesmon:
+
+[source, groovy]
+----
+issue = tuesmonClient.createIssue(issue)
+----
+
+The `issue` instance is populated with all the information returned from Tuesmon after the issue creation.
+
+You can also include attachments, set the owner, the creation date, the finished date, the assigned to user, the history of changes and the tags.
+Please, check https://github.com/tuesmoncom/tuesmon-importer-api-client/blob/master/src/test/groovy/net/kaleidos/tuesmon/IssueTuesmonSpec.groovy[the tests^] to see other examples.
